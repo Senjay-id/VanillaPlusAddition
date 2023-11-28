@@ -1,12 +1,13 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Logging;
+using CompanyBuildingInfiniteStamina;
 using HarmonyLib;
 using SkipInitSelection;
 
 namespace SenjayVPA
 {
     [BepInPlugin(GUID, Name, Version)]
-    public class SenjayVanillaPlusAddition : BaseUnityPlugin
+    public class SenjayVanillaPlusAdditionClass : BaseUnityPlugin
     {
         private const string Author = "Senjay";
         private const string Name = "Senjay's Vanilla Plus Addition";
@@ -15,7 +16,7 @@ namespace SenjayVPA
 
         private readonly Harmony harmony = new Harmony(GUID);
 
-        private static SenjayVanillaPlusAddition Instance;
+        private static SenjayVanillaPlusAdditionClass Instance;
 
         internal ManualLogSource mls;
 
@@ -26,8 +27,9 @@ namespace SenjayVPA
                 Instance = this;
             }
 
-            harmony.PatchAll(typeof(SenjayVanillaPlusAddition));
+            harmony.PatchAll(typeof(SenjayVanillaPlusAdditionClass));
             harmony.PatchAll(typeof(SkipInitSelectionClass));
+            harmony.PatchAll(typeof(InfiniteStaminaOnCompanyBuildingClass)); 
 
             mls = BepInEx.Logging.Logger.CreateLogSource(GUID);
 
