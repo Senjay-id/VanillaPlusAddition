@@ -11,7 +11,7 @@ namespace SenjayVPA
     {
         private const string Author = "Senjay";
         private const string Name = "Senjay's Vanilla Plus Addition";
-        private const string Version = "1.0.0.0";
+        private const string Version = "1.0.1";
         private const string GUID = Author + ".VanillaPlusAddition";
 
         private readonly Harmony harmony = new Harmony(GUID);
