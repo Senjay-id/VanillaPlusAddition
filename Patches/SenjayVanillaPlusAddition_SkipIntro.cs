@@ -1,16 +1,23 @@
 using HarmonyLib;
 using UnityEngine.SceneManagement;
 
-namespace SkipInitSelection
+namespace SkipGameInitialization
 {
-    [HarmonyPatch(typeof(PreInitSceneScript), "Awake")]
-    internal class SkipInitSelectionClass
+    internal class SkipGameInitializationClass
     {
+        [HarmonyPatch(typeof(PreInitSceneScript), "Awake")]
         [HarmonyPrefix]
         static void SkipInitSelection(ref bool ___choseLaunchOption)
         {
             ___choseLaunchOption = true;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("InitScene");
         }
+
+        [HarmonyPatch(typeof(InitializeGame), "Awake")]
+        [HarmonyPostfix]
+        static void SkipIntroAnimation(ref bool ___runBootUpScreen) 
+        {
+            ___runBootUpScreen = false;
+        }     
     }
 }
