@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using UnityEngine.SceneManagement;
 
 namespace SkipInitSelection
@@ -10,7 +10,7 @@ namespace SkipInitSelection
         static void SkipInitSelection(ref bool ___choseLaunchOption)
         {
             ___choseLaunchOption = true;
-            SceneManager.LoadScene("InitScene");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
