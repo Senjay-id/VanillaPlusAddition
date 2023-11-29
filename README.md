@@ -10,6 +10,9 @@ Planned
 * Config file to toggle specific feature of the mod
 * More plans later
 
+Requirement
+* BepInEx_x64
+
 Installation
 * Vortex/MO2 Mod Manager are supported
 * Manual Installation by extracting it into the game folder
