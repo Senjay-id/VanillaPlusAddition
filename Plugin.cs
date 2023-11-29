@@ -2,7 +2,7 @@ using BepInEx;
 using BepInEx.Logging;
 using CompanyBuildingInfiniteStamina;
 using HarmonyLib;
-using SkipInitSelection;
+using SkipGameInitialization;
 
 namespace SenjayVPA
 {
@@ -11,7 +11,7 @@ namespace SenjayVPA
     {
         private const string Author = "Senjay";
         private const string Name = "Senjay's Vanilla Plus Addition";
-        private const string Version = "1.0.1";
+        private const string Version = "1.0.3";
         private const string GUID = Author + ".VanillaPlusAddition";
 
         private readonly Harmony harmony = new Harmony(GUID);
@@ -28,7 +28,7 @@ namespace SenjayVPA
             }
 
             harmony.PatchAll(typeof(SenjayVanillaPlusAdditionClass));
-            harmony.PatchAll(typeof(SkipInitSelectionClass));
+            harmony.PatchAll(typeof(SkipGameInitializationClass));
             harmony.PatchAll(typeof(InfiniteStaminaOnCompanyBuildingClass)); 
 
             mls = BepInEx.Logging.Logger.CreateLogSource(GUID);
